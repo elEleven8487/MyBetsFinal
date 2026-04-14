@@ -28,11 +28,11 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:src="@drawable/PieMasGrande"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:src="@drawable/gemini_generated_image_lgr73blgr73blgr7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

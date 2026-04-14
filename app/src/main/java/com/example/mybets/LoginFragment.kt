@@ -4,6 +4,7 @@ import android.util.Patterns
 import android.view.View
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.mybets.databinding.FragmentLoginBinding // Esto importa  ViewBinding
 import androidx.navigation.fragment.findNavController
 
@@ -11,6 +12,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     // Variable para conectar la vista (View Binding)
     private lateinit var binding: FragmentLoginBinding
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
