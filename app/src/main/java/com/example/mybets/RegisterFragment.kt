@@ -1,56 +1,63 @@
-package com.example.mybets // Asegúrate de que este sea tu paquete correcto
+package com.example.mybets
 
 import android.os.Bundle
-import android.util.Patterns
 import android.view.View
-import androidx.core.widget.addTextChangedListener
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.example.mybets.core.AuthRepository
+import com.example.mybets.core.ResponseService
 import com.example.mybets.databinding.FragmentRegisterBinding
+import kotlinx.coroutines.launch
 
 class RegisterFragment : Fragment(R.layout.fragment_register) {
 
-    private lateinit var binding: FragmentRegisterBinding
+    private var _binding: FragmentRegisterBinding? = null
+    private val binding get() = _binding!!
+
+    private val authRepository = AuthRepository()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentRegisterBinding.bind(view)
+        _binding = FragmentRegisterBinding.bind(view)
 
-        setupValidation()
-    }
+        binding.buttonRegistrar.setOnClickListener {
+            // Aquí leemos el nombre de usuario (apodo)
+            val username = binding.etRegisterName.text.toString().trim()
+            val correo = binding.etRegisterCorreo.text.toString().trim()
+            val password = binding.etRegisterContrasena.text.toString().trim()
 
-    //
-    private fun setupValidation() {
-        // 1. Al tocar la flecha, simulamos el botón de "Atrás" del celular
-        binding.buttonBack.setOnClickListener {
-            requireActivity().onBackPressedDispatcher.onBackPressed()
+            if (username.isEmpty() || correo.isEmpty() || password.isEmpty()) {
+                Toast.makeText(requireContext(), "Por favor, llena todos los campos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (password.length < 6) {
+                Toast.makeText(requireContext(), "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            viewLifecycleOwner.lifecycleScope.launch {
+                // Mandamos los tres datos iniciales
+                val resultado = authRepository.requestSignUp(correo, password, username)
+
+                when (resultado) {
+                    is ResponseService.Success -> {
+                        Toast.makeText(requireContext(), "¡Cuenta creada! Completa tu perfil legal.", Toast.LENGTH_SHORT).show()
+                        findNavController().navigate(R.id.registerInformationFragment)
+                    }
+                    is ResponseService.Error -> {
+                        Toast.makeText(requireContext(), resultado.error, Toast.LENGTH_LONG).show()
+                    }
+                    is ResponseService.Loading -> { }
+                }
+            }
         }
-
-        // 2. Desactivamos el botón de registrar al inicio
-        binding.buttonRegistrar.isEnabled = false
-
-        // 3. Ponemos a los "vigilantes" de texto
-        binding.etRegisterName.addTextChangedListener { validateFields() }
-        binding.etRegisterCorreo.addTextChangedListener { validateFields() }
-        binding.etRegisterContrasena.addTextChangedListener { validateFields() }
     }
 
-    private fun validateFields() {
-        // Extraemos el texto
-        val name = binding.etRegisterName.text.toString().trim()
-        val email = binding.etRegisterCorreo.text.toString().trim()
-        val password = binding.etRegisterContrasena.text.toString().trim()
-
-        // Validamos las reglas
-        val isNameValid = name.isNotEmpty()
-        val isEmailValid = Patterns.EMAIL_ADDRESS.matcher(email).matches()
-        val isPasswordValid = password.length >= 8
-
-        // Mostramos errores visuales en los contenedores padres
-        binding.textInputLayoutRegisterName.error = if (name.isEmpty() || isNameValid) null else "El nombre es obligatorio"
-        binding.textInputLayoutRegisterCorreo.error = if (email.isEmpty() || isEmailValid) null else "Correo inválido"
-        binding.textInputLayoutRegisterContrasena.error = if (password.isEmpty() || isPasswordValid) null else "Mínimo 8 caracteres"
-
-        // El botón solo se enciende si TODO está correcto
-        binding.buttonRegistrar.isEnabled = isNameValid && email.isNotEmpty() && isEmailValid && isPasswordValid
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
-} //
+}

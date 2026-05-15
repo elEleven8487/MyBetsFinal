@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/betsFragment">
+
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.mybets.home.account.Account"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/betsFragment"
+        android:name="com.example.mybets.home.bets.bets"
+        android:label="fragment_bets"
+        tools:layout="@layout/fragment_bets" />
+</navigation>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_onboarding"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/splashFragment2">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -21,10 +21,27 @@
         android:id="@+id/registerFragment"
         android:name="com.example.mybets.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_registerInformationFragment"
+            app:destination="@id/registerInformationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/recoverPasswordFragment"
         android:name="com.example.mybets.RecoverPasswordFragment"
         android:label="fragment_recover_password"
         tools:layout="@layout/fragment_recover_password" />
+    <fragment
+        android:id="@+id/splashFragment2"
+        android:name="com.example.mybets.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerInformationFragment"
+        android:name="com.example.mybets.RegisterInformationFragment"
+        android:label="fragment_register_information"
+        tools:layout="@layout/fragment_register_information" />
 </navigation>

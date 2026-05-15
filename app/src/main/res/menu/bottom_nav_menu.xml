@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/betsFragment"
+        android:icon="@drawable/sports_ic"
+        android:title="Bets"/>
+    <item
+        android:id="@+id/accountFragment"
+        android:icon="@drawable/account_ic"
+        android:title="Account"/>
+
+</menu>

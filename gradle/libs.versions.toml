@@ -2,6 +2,8 @@
 agp = "9.1.0"
 coreKtx = "1.10.1"
 junit = "4.13.2"
+googleServices = "4.4.4"
+firebaseBom = "33.1.0"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 appcompat = "1.6.1"
@@ -11,6 +13,7 @@ constraintlayout = "2.1.4"
 fragment = "1.8.9"
 navigationFragmentKtx = "2.9.7"
 navigationUiKtx = "2.9.7"
+lottie = "6.4.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -24,6 +27,11 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 androidx-fragment = { group = "androidx.fragment", name = "fragment", version.ref = "fragment" }
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
+lottie = {group = "com.airbnb.android", name = "lottie", version.ref = "lottie"}
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref ="firebaseBom"}
+firebase-firestore = { group = "com.com.firebase", name = "firebase-firestore"}
+fire-auth = { group = "com.google.firebase", name = "firebase-auth"}
+#
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
