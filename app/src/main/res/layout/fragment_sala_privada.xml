@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:fitsSystemWindows="true">
+
+    <ImageView
+        android:id="@+id/btnBackSala"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:padding="8dp"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="#212121" />
+
+    <TextView
+        android:id="@+id/tvDetalleCodigo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:text="ID de la Sala: XXXXXX"
+        android:textAlignment="center"
+        android:textColor="#757575"
+        android:textSize="14sp"
+        android:letterSpacing="0.1"
+        app:layout_constraintBottom_toBottomOf="@id/btnBackSala"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnBackSala" />
+
+    <TextView
+        android:id="@+id/tvDetalleNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="8dp"
+        android:text="Nombre del Grupo"
+        android:textAlignment="center"
+        android:textColor="#212121"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBackSala" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayoutSala"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="#F5F5F5"
+        app:tabIndicatorColor="#212121"
+        app:tabSelectedTextColor="#212121"
+        app:tabTextColor="#757575"
+        app:layout_constraintTop_toBottomOf="@id/tvDetalleNombre" />
+
+    <View
+        android:id="@+id/dividerSala"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        app:layout_constraintTop_toBottomOf="@id/tabLayoutSala" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerSala"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dividerSala" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

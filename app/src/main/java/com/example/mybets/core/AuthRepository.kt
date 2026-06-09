@@ -23,7 +23,8 @@ class AuthRepository(): Authentication {
         } catch (e: FirebaseAuthInvalidCredentialsException) {
             ResponseService.Error("Correo o contraseña incorrectos")
         } catch (e: Exception) {
-            ResponseService.Error("Error inesperado. Intenta de nuevo")
+            // Cambio: Mostramos el error real en Login
+            ResponseService.Error("Error al iniciar sesión: ${e.message}")
         }
     }
 
@@ -49,7 +50,8 @@ class AuthRepository(): Authentication {
         } catch (e: FirebaseAuthWeakPasswordException) {
             ResponseService.Error("La contraseña es muy debil")
         } catch (e: Exception) {
-            ResponseService.Error("Error inesperado. Intenta de nuevo")
+            // ¡EL CAMBIO CLAVE!: Mostramos el error real de Firestore
+            ResponseService.Error("Error inesperado: ${e.message}")
         }
     }
 

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0FDF4">
+
+    <ImageView
+        android:id="@+id/btnBackDatos"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:padding="4dp"
+        android:src="@android:drawable/ic_menu_revert"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="#1F2937" />
+
+    <TextView
+        android:id="@+id/tvTituloDatos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Datos Personales"
+        android:textColor="#1F2937"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloDatos">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:orientation="vertical"
+            android:paddingBottom="32dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre de Usuario (Username)"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvDatosUsername"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#E5E7EB"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:text="..."
+                android:textColor="#1F2937"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre(s)"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvDatosNombreReal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#E5E7EB"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:text="..."
+                android:textColor="#1F2937"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Apellido Paterno"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvDatosApPaterno"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#E5E7EB"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:text="..."
+                android:textColor="#1F2937"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Apellido Materno"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvDatosApMaterno"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#E5E7EB"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:text="..."
+                android:textColor="#1F2937"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teléfono"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvDatosTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#E5E7EB"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:text="..."
+                android:textColor="#1F2937"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha de Nacimiento"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvDatosFechaNac"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#E5E7EB"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:text="..."
+                android:textColor="#1F2937"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

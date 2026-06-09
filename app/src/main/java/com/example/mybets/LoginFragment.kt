@@ -61,7 +61,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
 
         binding.tvRestablecerContrasena.setOnClickListener {
-            // findNavController().navigate(R.id.recoverPasswordFragment)
+            findNavController().navigate(R.id.recoverPasswordFragment)
         }
     }
 

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="3dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvLiga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LIGA BBVA MX"
+            android:textColor="#757575"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvFechaHora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Sáb 06 Jun - 19:00"
+            android:textColor="#9E9E9E"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLiga" />
+
+        <ImageView
+            android:id="@+id/ivLogoLocal"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:background="#EEEEEE"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFechaHora" />
+
+        <TextView
+            android:id="@+id/tvEquipoLocal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Local"
+            android:textColor="#212121"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/ivLogoLocal"
+            app:layout_constraintEnd_toStartOf="@+id/tvVS"
+            app:layout_constraintStart_toEndOf="@id/ivLogoLocal"
+            app:layout_constraintTop_toTopOf="@id/ivLogoLocal" />
+
+        <TextView
+            android:id="@+id/tvVS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VS"
+            android:textColor="#9E9E9E"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/ivLogoLocal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivLogoLocal" />
+
+        <TextView
+            android:id="@+id/tvEquipoVisitante"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Visitante"
+            android:textColor="#212121"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="end"
+            app:layout_constraintBottom_toBottomOf="@id/ivLogoVisitante"
+            app:layout_constraintEnd_toStartOf="@id/ivLogoVisitante"
+            app:layout_constraintStart_toEndOf="@id/tvVS"
+            app:layout_constraintTop_toTopOf="@id/ivLogoVisitante" />
+
+        <ImageView
+            android:id="@+id/ivLogoVisitante"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:background="#EEEEEE"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFechaHora" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            app:layout_constraintTop_toBottomOf="@id/ivLogoLocal">
+
+            <Button
+                android:id="@+id/btnLocal"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:backgroundTint="#E0E0E0"
+                android:text="L"
+                android:textColor="#212121" />
+
+            <Button
+                android:id="@+id/btnEmpate"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="4dp"
+                android:layout_weight="1"
+                android:backgroundTint="#E0E0E0"
+                android:text="E"
+                android:textColor="#212121" />
+
+            <Button
+                android:id="@+id/btnVisitante"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:backgroundTint="#E0E0E0"
+                android:text="V"
+                android:textColor="#212121" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

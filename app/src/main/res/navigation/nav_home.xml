@@ -10,9 +10,41 @@
         android:name="com.example.mybets.home.account.Account"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
+
+    <fragment
+        android:id="@+id/salasFragment"
+        android:name="com.example.mybets.home.bets.SalasFragment"
+        android:label="Salas"
+        tools:layout="@layout/fragment_salas" />
+
+    <fragment
+        android:id="@+id/salaPrivadaFragment"
+        android:name="com.example.mybets.home.bets.SalaPrivadaFragment"
+        android:label="Sala Privada"
+        tools:layout="@layout/fragment_sala_privada" />
+
     <fragment
         android:id="@+id/betsFragment"
         android:name="com.example.mybets.home.bets.bets"
         android:label="fragment_bets"
         tools:layout="@layout/fragment_bets" />
+
+    <fragment
+        android:id="@+id/seleccionarPartidosFragment"
+        android:name="com.example.mybets.home.bets.SeleccionarPartidosFragment"
+        android:label="Seleccionar Partidos"
+        tools:layout="@layout/fragment_seleccionar_partidos" />
+
+    <fragment
+        android:id="@+id/datosPersonalesFragment"
+        android:name="com.example.mybets.home.account.DatosPersonalesFragment"
+        android:label="DatosPersonalesFragment"
+        tools:layout="@layout/fragment_datos_personales" />
+
+    <fragment
+        android:id="@+id/seguridadFragment"
+        android:name="com.example.mybets.home.account.SeguridadFragment"
+        android:label="SeguridadFragment"
+        tools:layout="@layout/fragment_seguridad" />
+
 </navigation>
