@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mybets.R
 
-// estado: 0 = Pendiente, 1 = Acierto, 2 = Fallo
+
 data class ItemHistorial(val partido: String, val prediccion: String, val estado: Int)
 
 class HistorialAdapter(private val lista: List<ItemHistorial>) : RecyclerView.Adapter<HistorialAdapter.ViewHolder>() {
@@ -32,19 +32,19 @@ class HistorialAdapter(private val lista: List<ItemHistorial>) : RecyclerView.Ad
         holder.tvMiPronostico.text = item.prediccion
 
         when (item.estado) {
-            1 -> { // Acierto
+            1 -> {
                 holder.tvIndicadorResultado.text = "✅"
-                holder.fondoMiPronostico.setBackgroundColor(Color.parseColor("#D1FAE5")) // Verde tenue
+                holder.fondoMiPronostico.setBackgroundColor(Color.parseColor("#D1FAE5"))
                 holder.tvMiPronostico.setTextColor(Color.parseColor("#10B9B1"))
             }
-            2 -> { // Fallo
+            2 -> {
                 holder.tvIndicadorResultado.text = "❌"
-                holder.fondoMiPronostico.setBackgroundColor(Color.parseColor("#FEE2E2")) // Rojo tenue
-                holder.tvMiPronostico.setTextColor(Color.parseColor("#EF4444")) // Rojo fuerte
+                holder.fondoMiPronostico.setBackgroundColor(Color.parseColor("#FEE2E2"))
+                holder.tvMiPronostico.setTextColor(Color.parseColor("#EF4444"))
             }
-            else -> { // Pendiente
+            else -> {
                 holder.tvIndicadorResultado.text = "⏳"
-                holder.fondoMiPronostico.setBackgroundColor(Color.parseColor("#E5E7EB")) // Gris tenue
+                holder.fondoMiPronostico.setBackgroundColor(Color.parseColor("#E5E7EB"))
                 holder.tvMiPronostico.setTextColor(Color.parseColor("#1F2937"))
             }
         }

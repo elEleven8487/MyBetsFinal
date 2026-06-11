@@ -49,7 +49,7 @@ class HistorialTabFragment : Fragment() {
                 val numJornadas = query.size()
                 if (numJornadas == 0) return@addOnSuccessListener
 
-                // Creamos la lista para el menú: ["Jornada 1", "Jornada 2"...]
+
                 val opciones = mutableListOf<String>()
                 for (i in 1..numJornadas) {
                     opciones.add("Jornada $i")
@@ -62,7 +62,7 @@ class HistorialTabFragment : Fragment() {
                 )
                 spinnerJornadas.adapter = spinnerAdapter
 
-                // Cuando el usuario elige una opción del menú, recargamos la lista
+
                 spinnerJornadas.onItemSelectedListener =
                     object : AdapterView.OnItemSelectedListener {
                         override fun onItemSelected(
@@ -107,7 +107,7 @@ class HistorialTabFragment : Fragment() {
 
                             val miVoto = misPredicciones[id] ?: "Sin voto"
 
-                            // Comparamos para saber el estado
+
                             var estado = 0 // Pendiente
                             if (resultadosOficiales.containsKey(id)) {
                                 val resultadoReal = resultadosOficiales[id]
@@ -117,16 +117,16 @@ class HistorialTabFragment : Fragment() {
                             listaFinal.add(ItemHistorial("$local vs $visitante", miVoto, estado))
                         }
 
-                        // Buscamos nuestro mensaje de Estado Vacío usando requireView() que es más seguro
+
                         val llEstadoVacio =
                             requireView().findViewById<android.widget.LinearLayout>(R.id.llEstadoVacioHistorial)
 
                         if (listaFinal.isEmpty()) {
-                            // Si la lista está vacía, ocultamos la lista y mostramos el mensaje
+
                             rvHistorial.visibility = android.view.View.GONE
                             llEstadoVacio.visibility = android.view.View.VISIBLE
                         } else {
-                            // Si hay datos, mostramos la lista normal y ocultamos el mensaje
+
                             rvHistorial.visibility = android.view.View.VISIBLE
                             llEstadoVacio.visibility = android.view.View.GONE
 

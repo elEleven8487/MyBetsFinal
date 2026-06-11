@@ -38,10 +38,10 @@ class QuinielaTabFragment : Fragment() {
         val salaId = arguments?.getString("codigo_sala")
 
         if (salaId != null) {
-            // Le pasamos el botón a la función para que decida si mostrarlo o no
+
             cargarPartidosDesdeFirebase(salaId, rvQuinielaTab, btnNuevaJornada)
 
-            // Si el Admin toca el botón, lo mandamos a elegir partidos, avisando de qué sala viene
+
             btnNuevaJornada.setOnClickListener {
                 val bundle = Bundle().apply {
                     putString("sala_id_existente", salaId)
@@ -67,7 +67,7 @@ class QuinielaTabFragment : Fragment() {
                 if (documento.exists()) {
                     jornadaActivaId = documento.getString("jornadaActiva") ?: "jornada_1"
 
-                    // ¡AQUÍ ESTÁ LA MAGIA! Comparamos el Admin de la sala con el usuario actual
+
                     val adminId = documento.getString("adminId")
                     if (adminId == auth.currentUser?.uid) {
                         btnNuevaJornada.visibility = View.VISIBLE

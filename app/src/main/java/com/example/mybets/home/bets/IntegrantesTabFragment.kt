@@ -32,7 +32,7 @@ class IntegrantesTabFragment : Fragment() {
         rvIntegrantes = view.findViewById(R.id.rvIntegrantes)
         rvIntegrantes.layoutManager = LinearLayoutManager(requireContext())
 
-        // Empezamos con una lista vacía
+
         adapter = IntegrantesAdapter(listaIntegrantes)
         rvIntegrantes.adapter = adapter
 
@@ -44,7 +44,7 @@ class IntegrantesTabFragment : Fragment() {
     }
 
     private fun cargarIntegrantes(salaId: String) {
-        // 1. Buscamos qué usuarios pertenecen a esta sala
+
         db.collection("salas").document(salaId).get()
             .addOnSuccessListener { documentoSala ->
                 if (documentoSala.exists()) {
@@ -63,11 +63,11 @@ class IntegrantesTabFragment : Fragment() {
     private fun obtenerNombresDeUsuarios(ids: List<String>) {
         listaIntegrantes.clear()
 
-        // 2. Buscamos en la colección correcta: "usuarios"
+
         for (id in ids) {
             db.collection("usuarios").document(id).get()
                 .addOnSuccessListener { documentoUsuario ->
-                    // Buscamos tu campo "username" o "nombreReal"
+
                     val nombre = documentoUsuario.getString("username") ?:
                     documentoUsuario.getString("nombreReal") ?: "Usuario $id"
 

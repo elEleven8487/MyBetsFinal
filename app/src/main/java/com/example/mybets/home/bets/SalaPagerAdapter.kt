@@ -13,7 +13,7 @@ class SalaPagerAdapter(fragment: Fragment, private val salaId: String) : Fragmen
             putString("codigo_sala", salaId)
         }
 
-        // Le decimos explícitamente "as Fragment" a cada opción
+
         val fragment = when (position) {
             0 -> QuinielaTabFragment() as Fragment
             1 -> IntegrantesTabFragment() as Fragment

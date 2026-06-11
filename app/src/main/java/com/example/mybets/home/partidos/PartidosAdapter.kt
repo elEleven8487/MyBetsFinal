@@ -34,7 +34,7 @@ class PartidosAdapter(private val partidos: List<MatchData>) : RecyclerView.Adap
         holder.tvLocalName.text = partido.teams.home.name
         holder.tvVisitanteName.text = partido.teams.away.name
 
-        // Cortamos la fecha para mostrar solo la hora
+
         holder.tvFecha.text = partido.fixture.date.substring(11, 16)
 
         holder.ivLeagueLogo.load(partido.league.logo) { crossfade(true) }

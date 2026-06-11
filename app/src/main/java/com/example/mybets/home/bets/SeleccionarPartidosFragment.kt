@@ -50,7 +50,7 @@ class SeleccionarPartidosFragment : Fragment() {
 
         val nombreSala = arguments?.getString("nombre_sala") ?: "Mi Quiniela"
 
-        // ¡LA CLAVE! Revisamos si venimos a agregar una jornada a una sala existente
+
         val salaIdExistente = arguments?.getString("sala_id_existente")
         if (salaIdExistente != null) {
             tvTituloSeleccion.text = "Nueva Jornada"
@@ -68,7 +68,7 @@ class SeleccionarPartidosFragment : Fragment() {
 
             val partidosCompletosParaGuardar = todosLosPartidosOriginales.filter { seleccionadosIds.contains(it.id) }
 
-            // Decidimos qué acción tomar dependiendo de si ya existe la sala
+
             if (salaIdExistente != null) {
                 agregarJornadaASala(salaIdExistente, partidosCompletosParaGuardar)
             } else {
@@ -78,10 +78,10 @@ class SeleccionarPartidosFragment : Fragment() {
     }
 
     private fun cargarPartidosDeLaAPI() {
-        // Buscamos el círculo de carga y la lista en la pantalla
+
         val pbCargando = requireView().findViewById<android.widget.ProgressBar>(R.id.pbCargandoSeleccion)
 
-        // Mostramos el círculo y ocultamos la lista temporalmente
+
         pbCargando.visibility = View.VISIBLE
         rvPartidosSeleccion.visibility = View.GONE
 
@@ -115,7 +115,7 @@ class SeleccionarPartidosFragment : Fragment() {
                     override fun onNothingSelected(parent: AdapterView<*>?) {}
                 }
 
-                // ¡Terminó de cargar! Ocultamos el círculo y mostramos los partidos
+
                 pbCargando.visibility = View.GONE
                 rvPartidosSeleccion.visibility = View.VISIBLE
 
@@ -126,7 +126,7 @@ class SeleccionarPartidosFragment : Fragment() {
         }
     }
 
-    // --- FUNCIÓN ANTIGUA (Crear sala desde cero) ---
+
     private fun crearSalaConPartidos(nombre: String, partidosIds: List<String>, partidosDetalles: List<PartidoSeleccion>) {
         val userId = auth.currentUser?.uid ?: return
         val nuevoCodigo = generarCodigoAleatorio()
@@ -146,9 +146,9 @@ class SeleccionarPartidosFragment : Fragment() {
         }
     }
 
-    // --- ¡FUNCIÓN NUEVA! (Agregar jornada a grupo existente) ---
+
     private fun agregarJornadaASala(salaId: String, partidosDetalles: List<PartidoSeleccion>) {
-        // Contamos cuántas jornadas tiene la sala para saber el número de la nueva (ej. si hay 1, la nueva es la 2)
+
         db.collection("salas").document(salaId).collection("jornadas").get()
             .addOnSuccessListener { query ->
                 val numeroNuevaJornada = query.size() + 1
@@ -161,10 +161,10 @@ class SeleccionarPartidosFragment : Fragment() {
                     "fechaCreacion" to System.currentTimeMillis()
                 )
 
-                // Guardamos la nueva jornada
+
                 db.collection("salas").document(salaId).collection("jornadas").document(nombreJornada).set(jornadaData)
                     .addOnSuccessListener {
-                        // Actualizamos el puntero de la sala principal para que todos vean la nueva jornada
+
                         db.collection("salas").document(salaId).update("jornadaActiva", nombreJornada)
                             .addOnSuccessListener {
                                 Toast.makeText(requireContext(), "¡Jornada $numeroNuevaJornada activada!", Toast.LENGTH_LONG).show()

@@ -34,9 +34,9 @@ class bets : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             try {
-                // 1. Mostrar el círculo de carga al iniciar
+
                 pbCargando.visibility = View.VISIBLE
-                rvPartidos.visibility = View.GONE // Ocultamos la lista vacía
+                rvPartidos.visibility = View.GONE
 
                 Log.d("API_PRUEBA", "Intentando descargar partidos...")
                 val repository = SportsRepository()
@@ -69,12 +69,12 @@ class bets : Fragment() {
                     override fun onNothingSelected(parent: AdapterView<*>?) {}
                 }
 
-                // 2. ¡Partidos listos! Ocultamos el círculo y mostramos la lista
+
                 pbCargando.visibility = View.GONE
                 rvPartidos.visibility = View.VISIBLE
 
             } catch (e: Exception) {
-                // Si hay un error (ej. sin internet), también ocultamos el círculo
+
                 pbCargando.visibility = View.GONE
                 Log.e("API_PRUEBA", "Error al descargar: ${e.message}")
             }

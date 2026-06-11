@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mybets.R
 
-// 1. Modificamos el modelo para que recuerde la selección del usuario ("L", "E" o "V")
+
 data class Partido(val id: String, val local: String, val visitante: String, var seleccion: String = "")
 
 class ApuestasAdapter(private val listaPartidos: List<Partido>) : RecyclerView.Adapter<ApuestasAdapter.ApuestaViewHolder>() {
@@ -32,38 +32,38 @@ class ApuestasAdapter(private val listaPartidos: List<Partido>) : RecyclerView.A
         holder.tvLocal.text = partido.local
         holder.tvVisitante.text = partido.visitante
 
-        // 2. Pintamos los botones según lo que el usuario haya seleccionado
+
         actualizarBotones(holder, partido.seleccion)
 
-        // 3. ¿Qué pasa si toca LOCAL?
+
         holder.btnLocal.setOnClickListener {
             partido.seleccion = "L"
-            notifyItemChanged(position) // Refresca solo esta tarjeta para cambiar el color
+            notifyItemChanged(position)
         }
 
-        // 4. ¿Qué pasa si toca EMPATE?
+
         holder.btnEmpate.setOnClickListener {
             partido.seleccion = "E"
             notifyItemChanged(position)
         }
 
-        // 5. ¿Qué pasa si toca VISITANTE?
+
         holder.btnVisitante.setOnClickListener {
             partido.seleccion = "V"
             notifyItemChanged(position)
         }
     }
 
-    // Función que maneja los colores de los botones
+
     private fun actualizarBotones(holder: ApuestaViewHolder, seleccion: String) {
-        // Definimos los colores: Inactivo (Gris) y Activo (Negro)
+
         val colorInactivo = Color.parseColor("#E0E0E0")
         val textoInactivo = Color.parseColor("#212121")
 
         val colorActivo = Color.parseColor("#212121")
         val textoActivo = Color.parseColor("#FFFFFF")
 
-        // Primero ponemos todos en gris (reseteo)
+
         holder.btnLocal.setBackgroundColor(colorInactivo)
         holder.btnLocal.setTextColor(textoInactivo)
         holder.btnEmpate.setBackgroundColor(colorInactivo)
@@ -71,7 +71,7 @@ class ApuestasAdapter(private val listaPartidos: List<Partido>) : RecyclerView.A
         holder.btnVisitante.setBackgroundColor(colorInactivo)
         holder.btnVisitante.setTextColor(textoInactivo)
 
-        // Luego pintamos de negro SOLO el que está seleccionado
+
         when (seleccion) {
             "L" -> {
                 holder.btnLocal.setBackgroundColor(colorActivo)

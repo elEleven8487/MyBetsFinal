@@ -9,7 +9,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mybets.R
 
-// Modelo para los jugadores en la tabla
+
 data class JugadorClasificacion(val id: String, val nombre: String, val puntos: Int)
 
 class ClasificacionAdapter(private val listaJugadores: List<JugadorClasificacion>) : RecyclerView.Adapter<ClasificacionAdapter.ViewHolder>() {
@@ -33,31 +33,31 @@ class ClasificacionAdapter(private val listaJugadores: List<JugadorClasificacion
         holder.tvNombreJugador.text = jugador.nombre
         holder.tvPuntos.text = "${jugador.puntos} pts"
 
-        // ¡MAGIA DE COLORES PARA EL TOP 3!
+
         when (position) {
             0 -> {
-                // 1er Lugar: Tu verde fuerte
+
                 holder.cardClasificacion.setCardBackgroundColor(Color.parseColor("#10B9B1"))
                 holder.tvNombreJugador.setTextColor(Color.WHITE)
                 holder.tvPuntos.setTextColor(Color.WHITE)
                 holder.tvPosicion.setTextColor(Color.WHITE)
             }
             1 -> {
-                // 2do Lugar: Tu verde claro
+
                 holder.cardClasificacion.setCardBackgroundColor(Color.parseColor("#6EE7B7"))
                 holder.tvNombreJugador.setTextColor(Color.parseColor("#1F2937"))
                 holder.tvPuntos.setTextColor(Color.parseColor("#1F2937"))
                 holder.tvPosicion.setTextColor(Color.parseColor("#1F2937"))
             }
             2 -> {
-                // 3er Lugar: Verde muy tenue (con transparencia)
+
                 holder.cardClasificacion.setCardBackgroundColor(Color.parseColor("#D1FAE5"))
                 holder.tvNombreJugador.setTextColor(Color.parseColor("#1F2937"))
                 holder.tvPuntos.setTextColor(Color.parseColor("#10B9B1"))
                 holder.tvPosicion.setTextColor(Color.parseColor("#1F2937"))
             }
             else -> {
-                // Resto de jugadores: Blanco normal
+
                 holder.cardClasificacion.setCardBackgroundColor(Color.WHITE)
                 holder.tvNombreJugador.setTextColor(Color.parseColor("#1F2937"))
                 holder.tvPuntos.setTextColor(Color.parseColor("#10B9B1"))

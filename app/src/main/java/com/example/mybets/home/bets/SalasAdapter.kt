@@ -17,7 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 data class Sala(val codigo: String, val nombre: String)
 
-// NOTA IMPORTANTE: Cambiamos "List" a "MutableList" para poder borrar elementos en tiempo real
+
 class SalasAdapter(private var salasList: MutableList<Sala>) : RecyclerView.Adapter<SalasAdapter.SalaViewHolder>() {
 
     class SalaViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -36,7 +36,7 @@ class SalasAdapter(private var salasList: MutableList<Sala>) : RecyclerView.Adap
         holder.tvNombreSala.text = sala.nombre
         holder.tvCodigoSala.text = "ID: ${sala.codigo}"
 
-        // 1. Clic en la tarjeta para ENTRAR a la sala
+
         holder.itemView.setOnClickListener { view ->
             val paqueteDatos = Bundle().apply {
                 putString("codigo_sala", sala.codigo)
@@ -45,11 +45,11 @@ class SalasAdapter(private var salasList: MutableList<Sala>) : RecyclerView.Adap
             view.findNavController().navigate(R.id.salaPrivadaFragment, paqueteDatos)
         }
 
-        // 2. Clic en la "X" roja para SALIR de la sala
+
         holder.btnSalirSala.setOnClickListener { view ->
             val context = view.context
 
-            // Cuadro de confirmación profesional
+
             AlertDialog.Builder(context)
                 .setTitle("Salir del grupo")
                 .setMessage("¿Estás seguro de que quieres salir de '${sala.nombre}'? Perderás el acceso y tus puntos.")
@@ -57,13 +57,13 @@ class SalasAdapter(private var salasList: MutableList<Sala>) : RecyclerView.Adap
 
                     val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return@setPositiveButton
 
-                    // Magia de Firebase: Borramos tu ID del grupo
+
                     FirebaseFirestore.getInstance().collection("salas").document(sala.codigo)
                         .update("miembros", FieldValue.arrayRemove(userId))
                         .addOnSuccessListener {
                             Toast.makeText(context, "Saliste del grupo correctamente", Toast.LENGTH_SHORT).show()
 
-                            // Borramos la tarjeta de la pantalla con una animación
+
                             val posActual = holder.adapterPosition
                             if (posActual != RecyclerView.NO_POSITION) {
                                 salasList.removeAt(posActual)

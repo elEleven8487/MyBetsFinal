@@ -29,25 +29,25 @@ class RecoverPasswordFragment : Fragment() {
         val etRecoverEmail = view.findViewById<TextInputEditText>(R.id.etRecoverEmail)
         val btnEnviarCorreo = view.findViewById<MaterialButton>(R.id.btnEnviarCorreo)
 
-        // 1. Flecha para regresar al Login
+
         buttonBack.setOnClickListener {
             findNavController().popBackStack()
         }
 
-        // 2. Botón para enviar el correo con Firebase
+
         btnEnviarCorreo.setOnClickListener {
             val email = etRecoverEmail.text.toString().trim()
 
             if (email.isEmpty()) {
                 Toast.makeText(requireContext(), "Por favor, escribe tu correo", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener // Detiene la función si el campo está vacío
+                return@setOnClickListener
             }
 
-            // Le pedimos a Firebase que envíe el correo
+
             auth.sendPasswordResetEmail(email)
                 .addOnSuccessListener {
                     Toast.makeText(requireContext(), "¡Correo enviado! Revisa tu bandeja de entrada.", Toast.LENGTH_LONG).show()
-                    // Regresamos al Login automáticamente para que inicie sesión con su nueva clave
+
                     findNavController().popBackStack()
                 }
                 .addOnFailureListener { error ->

@@ -77,11 +77,11 @@ class SalasFragment : Fragment() {
         builder.setPositiveButton("Siguiente") { dialog, _ ->
             val nombreSala = input.text.toString().trim()
             if (nombreSala.isNotEmpty()) {
-                // Empacamos el nombre de la sala para enviarlo a la siguiente pantalla
+
                 val paquete = Bundle().apply {
                     putString("nombre_sala", nombreSala)
                 }
-                // Hacemos el viaje hacia la pantalla de selección de partidos
+
                 requireView().findNavController().navigate(R.id.seleccionarPartidosFragment, paquete)
             } else {
                 Toast.makeText(requireContext(), "El nombre no puede estar vacío", Toast.LENGTH_SHORT).show()

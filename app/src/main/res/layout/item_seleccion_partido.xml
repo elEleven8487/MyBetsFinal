@@ -15,7 +15,7 @@
         android:padding="16dp"
         android:gravity="center_vertical">
 
-        <!-- La casilla para palomear -->
+
         <CheckBox
             android:id="@+id/cbSeleccionar"
             android:layout_width="wrap_content"

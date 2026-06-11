@@ -28,12 +28,12 @@ class SeguridadFragment : Fragment() {
         val tvCorreo = view.findViewById<TextView>(R.id.tvCorreoSeguridad)
         val btnCambiarPassword = view.findViewById<Button>(R.id.btnCambiarPassword)
 
-        // 1. Botón de regreso
+
         btnBack.setOnClickListener {
             findNavController().popBackStack()
         }
 
-        // 2. Mostrar el correo del usuario
+
         val currentUser = auth.currentUser
         val userEmail = currentUser?.email
 
@@ -43,7 +43,7 @@ class SeguridadFragment : Fragment() {
             tvCorreo.text = "Error al cargar correo"
         }
 
-        // 3. Enviar el enlace de recuperación mágicamente
+
         btnCambiarPassword.setOnClickListener {
             if (userEmail != null) {
                 auth.sendPasswordResetEmail(userEmail)

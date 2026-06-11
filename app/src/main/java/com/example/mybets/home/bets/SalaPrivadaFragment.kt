@@ -32,23 +32,22 @@ class SalaPrivadaFragment : Fragment() {
         val tabLayoutSala = view.findViewById<TabLayout>(R.id.tabLayoutSala)
         val viewPagerSala = view.findViewById<ViewPager2>(R.id.viewPagerSala)
 
-        // Funcionalidad del botón ATRÁS
+
         btnBackSala.setOnClickListener {
             findNavController().popBackStack()
         }
 
-        // Colocamos los datos del encabezado
+
         val salaId = arguments?.getString("codigo_sala") ?: "XXXXXX"
         val salaNombre = arguments?.getString("nombre_sala") ?: "Sala"
         tvDetalleCodigo.text = "ID: $salaId"
         tvDetalleNombre.text = salaNombre
 
-        // --- CONECTAMOS LAS PESTAÑAS ---
-        // Le asignamos el adaptador a nuestro paginador
+
         val adapter = SalaPagerAdapter(this, salaId)
         viewPagerSala.adapter = adapter
 
-        // Unimos el TabLayout con el ViewPager y le ponemos los nombres
+
         TabLayoutMediator(tabLayoutSala, viewPagerSala) { tab, position ->
             tab.text = when (position) {
                 0 -> "Quiniela"

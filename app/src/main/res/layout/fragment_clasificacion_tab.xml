@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#F0FDF4">
 
-    <!-- Encabezado: Trofeo y Título -->
+
     <LinearLayout
         android:id="@+id/headerClasificacion"
         android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/headerClasificacion" />
 
-    <!-- Lista de jugadores -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvClasificacion"
         android:layout_width="0dp"
@@ -58,7 +58,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/spinnerTipoClasificacion" />
 
-    <!-- Botón para el Admin -->
+
     <Button
         android:id="@+id/btnCalcularPuntos"
         android:layout_width="match_parent"

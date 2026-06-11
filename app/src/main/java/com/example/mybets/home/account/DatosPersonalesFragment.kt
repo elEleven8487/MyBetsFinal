@@ -34,7 +34,7 @@ class DatosPersonalesFragment : Fragment() {
         val tvTelefono = view.findViewById<TextView>(R.id.tvDatosTelefono)
         val tvFechaNac = view.findViewById<TextView>(R.id.tvDatosFechaNac)
 
-        // Botón para regresar al menú anterior
+
         btnBack.setOnClickListener {
             findNavController().popBackStack()
         }
@@ -43,7 +43,7 @@ class DatosPersonalesFragment : Fragment() {
         if (currentUser != null) {
             val userId = currentUser.uid
 
-            // Leemos los datos directamente de tu colección "usuarios" usando tus nombres de campo exactos
+
             db.collection("usuarios").document(userId).get()
                 .addOnSuccessListener { documento ->
                     if (documento.exists()) {

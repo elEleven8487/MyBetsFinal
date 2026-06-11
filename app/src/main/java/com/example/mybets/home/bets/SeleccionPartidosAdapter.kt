@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mybets.R
 
-// ¡NUEVO!: Agregamos logos y fecha para que la sala pueda guardarlos enteros en Firebase
+
 data class PartidoSeleccion(
     val id: String,
     val local: String,

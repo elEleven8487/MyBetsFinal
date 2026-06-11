@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mybets.R
 
-// Modelo simple para los integrantes
+
 data class Integrante(val id: String, val nombre: String)
 
 class IntegrantesAdapter(private val listaIntegrantes: List<Integrante>) : RecyclerView.Adapter<IntegrantesAdapter.ViewHolder>() {

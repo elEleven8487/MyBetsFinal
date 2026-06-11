@@ -6,11 +6,11 @@ class SportsRepository {
 
     private val apiKey = "9bfff2b90b678cb90ca57c7e3719af76"
 
-    // Agregamos ": ApiSportsResponse" para indicarle que devolverá los datos
+
     suspend fun probarConexion(): ApiSportsResponse {
         return RetrofitClient.apiService.getPartidosDelDia(
             apiKey = apiKey,
-            fecha = "2026-06-08"
+            fecha = "2026-06-11"
         )
     }
 }

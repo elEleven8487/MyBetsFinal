@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mybets.R
 
-// Un modelo específico para guardar todo lo que necesita tu nuevo diseño
+
 data class PartidoSala(
     val id: String,
     val liga: String,
@@ -50,14 +50,14 @@ class QuinielaSalaAdapter(private val listaPartidos: List<PartidoSala>) : Recycl
         holder.tvLocal.text = partido.localNombre
         holder.tvVisitante.text = partido.visitanteNombre
 
-        // Formatear la fecha (la API manda "2026-06-06T19:00:00", la cortamos un poco)
+
         holder.tvFechaHora.text = partido.fechaHora.substringBefore("T")
 
-        // ¡MAGIA DE GLIDE! Carga los escudos de internet en los ImageView
+
         Glide.with(holder.itemView.context).load(partido.localLogoUrl).into(holder.ivLogoLocal)
         Glide.with(holder.itemView.context).load(partido.visitanteLogoUrl).into(holder.ivLogoVisitante)
 
-        // Lógica de colores para los botones L-E-V
+
         actualizarBotones(holder, partido.seleccion)
 
         holder.btnLocal.setOnClickListener {
@@ -75,11 +75,11 @@ class QuinielaSalaAdapter(private val listaPartidos: List<PartidoSala>) : Recycl
     }
 
     private fun actualizarBotones(holder: ViewHolder, seleccion: String) {
-        // Inactivo: Gris claro con texto en tu color oscuro
+
         val colorInactivo = android.graphics.Color.parseColor("#E0E0E0")
         val textoInactivo = android.graphics.Color.parseColor("#1F2937")
 
-        // Activo: Tu verde principal con texto blanco
+
         val colorActivo = android.graphics.Color.parseColor("#10B9B1")
         val textoActivo = android.graphics.Color.parseColor("#FFFFFF")
 
@@ -99,7 +99,7 @@ class QuinielaSalaAdapter(private val listaPartidos: List<PartidoSala>) : Recycl
 
     override fun getItemCount() = listaPartidos.size
 
-    // Función para recolectar las respuestas y enviarlas a Firebase
+
     fun obtenerPronosticos(): Map<String, String> {
         val pronosticos = mutableMapOf<String, String>()
         for (partido in listaPartidos) {
