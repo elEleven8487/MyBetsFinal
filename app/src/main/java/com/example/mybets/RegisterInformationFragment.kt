@@ -47,14 +47,13 @@ class RegisterInformationFragment : Fragment(R.layout.fragment_register_informat
                         is ResponseService.Success -> {
                             Toast.makeText(requireContext(), "¡Bienvenido a MyBets!", Toast.LENGTH_SHORT).show()
 
-                            // 1. Creamos el "transporte" (Intent) para ir al nuevo edificio
+
                             val intent = Intent(requireContext(), HomeActivity::class.java)
 
-                            // 2. Iniciamos el viaje
+
                             startActivity(intent)
 
-                            // 3. Cerramos el edificio de Registro (MainActivity) para que el usuario
-                            // no pueda regresar con el botón de "atrás" del celular
+
                             activity?.finish()
                         }
                         is ResponseService.Error -> {

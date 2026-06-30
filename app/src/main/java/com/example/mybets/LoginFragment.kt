@@ -39,13 +39,13 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     is ResponseService.Success -> {
                         Toast.makeText(requireContext(), "¡Bienvenido de vuelta!", Toast.LENGTH_SHORT).show()
 
-                        // 1. Creamos el transporte para ir al edificio del Home
+
                         val intent = Intent(requireContext(), HomeActivity::class.java)
 
-                        // 2. Iniciamos el viaje
+
                         startActivity(intent)
 
-                        // 3. Destruimos la pantalla de Login para que no puedan regresar con el botón atrás
+
                         activity?.finish()
                     }
                     is ResponseService.Error -> {
@@ -61,7 +61,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
 
         binding.tvRestablecerContrasena.setOnClickListener {
-            // findNavController().navigate(R.id.recoverPasswordFragment)
+            findNavController().navigate(R.id.recoverPasswordFragment)
         }
     }
 

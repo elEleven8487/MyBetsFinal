@@ -23,7 +23,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         _binding = FragmentRegisterBinding.bind(view)
 
         binding.buttonRegistrar.setOnClickListener {
-            // Aquí leemos el nombre de usuario (apodo)
+
             val username = binding.etRegisterName.text.toString().trim()
             val correo = binding.etRegisterCorreo.text.toString().trim()
             val password = binding.etRegisterContrasena.text.toString().trim()

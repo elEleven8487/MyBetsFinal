@@ -6,6 +6,10 @@
         android:icon="@drawable/sports_ic"
         android:title="Bets"/>
     <item
+        android:id="@+id/salasFragment"
+        android:icon="@drawable/salas_ic"
+        android:title="Salas" />
+    <item
         android:id="@+id/accountFragment"
         android:icon="@drawable/account_ic"
         android:title="Account"/>

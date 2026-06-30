@@ -12,9 +12,9 @@ class SplashFragment : Fragment(R.layout.splash_fragment) { // Revisa que aquí 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Hacemos que la app espere 3000 milisegundos (3 segundos)
+
         Handler(Looper.getMainLooper()).postDelayed({
-            // Navegamos al Login (Esta flecha debe existir en tu nav_onboarding.xml)
+
             findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
         }, 3000)
     }
