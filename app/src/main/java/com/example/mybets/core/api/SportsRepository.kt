@@ -10,7 +10,7 @@ class SportsRepository {
     suspend fun probarConexion(): ApiSportsResponse {
         return RetrofitClient.apiService.getPartidosDelDia(
             apiKey = apiKey,
-            fecha = "2026-06-11"
+            fecha = "2026-06-29"
         )
     }
 }
